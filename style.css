@@ -117,7 +117,7 @@ body {
     content: "\00a0\00a0";
 }
 
-.block-container .command.block > .content > .value-slot:last-child {
+.block-container .command.block > .content > :is(.value-slot, .choice):last-child {
     margin-right: 0px;
 }
 
