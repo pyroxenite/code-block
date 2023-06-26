@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/command-block.css">
+    <link rel="stylesheet" href="css/value-block.css">
+    <link rel="stylesheet" href="css/header-block.css">
 </head>
 <body>
 
     <div class="block-container">
-    <div class="data command block"> 
+    <div class="data command block" style="left: 40px; top: 50px;"> 
         <div class="content">
             <span class="label">Add</span>
-            <span class="value-slot" contenteditable="true">1</span>
+            <span class="value-slot" contenteditable="true">
+                5
+            </span>
             <span class="label">to</span>
             <span class="choice">count</span>
         </div>
@@ -26,7 +32,13 @@
                         <div class="action command block">
                             <div class="content">
                                 <span class="label">Rotate</span>
-                                <span class="value-slot" contenteditable="true">15</span>
+                                <span class="value-slot" contenteditable="true">
+                                    <div class="data value block" style="">
+                                        <div class="content">
+                                            <span class="label">count</span>
+                                        </div>
+                                    </div>
+                                </span>
                                 <span class="label">degrees</span>
                             </div>
                             <div class="block-slot">
@@ -39,7 +51,7 @@
         </div>
     </div>
 
-    <div class="action command block" style="">
+    <div class="action command block" style="left: 100px; top: 200px;">
         <div class="content">
             <span class="label">Rotate</span>
             <span class="value-slot" contenteditable="true">15</span>
@@ -50,17 +62,20 @@
         </div>
     </div>
 
-    <div class="data value block" style="">
+    <div class="data value block" style="left: 40px; top: 300px;">
         <div class="content">
             <span class="label">count</span>
         </div>
-        <div class="block-slot">
+    </div>
 
+    <div class="data boolean value block" style="left: 100px; top: 350px;">
+        <div class="content">
+            <span class="label">is visible</span>
         </div>
     </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/code-blocks.js"></script>
 </body>
 </html>

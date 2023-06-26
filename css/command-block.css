@@ -1,0 +1,26 @@
+.block-container .command.block>.content {
+    border-radius: 0 100px 100px 0;
+    margin-bottom: 2px;
+    padding-left: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+    padding: 4px;
+}
+
+.block-container .command.block>.content::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 5px;
+    left: -5px;
+    top: -1px;
+    bottom: -1px;
+    /* height: 20px; */
+    background-color: rgba(255, 255, 255, 0.764);
+}
+
+.block-container .command.block>.content>.label:first-child {
+    margin-left: 4px;
+}

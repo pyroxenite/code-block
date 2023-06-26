@@ -1,11 +1,13 @@
 body {
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+    height: 100vh;
 }
 
 @font-face {
     font-family: Rubik;
-    src: url("Rubik.ttf");
+    src: url("../fonts/Rubik.ttf");
 }
 
 .block-container {
@@ -14,9 +16,12 @@ body {
     height: 500px;
     font-family: Rubik;
     position: relative;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.block-container > .block {
+.block-container>.block {
     /* border: 3px solid yellow;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -25,14 +30,14 @@ body {
     position: absolute;
 }
 
-.block-container .command.block {
-    display: inline-block;
+.block-container .block {
+    display: block;
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
 }
 
-.block-container .block > .content {
+.block-container .block>.content {
     background-color: rgb(90, 90, 90);
     display: inline-block;
     color: white;
@@ -44,41 +49,10 @@ body {
     font-family: Rubik;
     font-variation-settings: "wght" 380;
     position: relative;
+    white-space: nowrap;
 }
 
-.block-container .command.block > .content {
-    border-radius: 0 100px 100px 0;
-    margin-bottom: 2px;
-    padding-left: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    transform: translateX(5px);
-    padding: 4px;
-}
-
-.block-container .value.block > .content {
-    border-radius: 100px 100px;
-    margin-bottom: 2px;
-    padding-left: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transform: translateX(5px);
-    padding: 1px;
-}
-
-.block-container .command.block > .content::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    width: 5px;
-    left: -5px;
-    top: -1px;
-    bottom: -1px;
-    /* height: 20px; */
-    background-color: rgba(255, 255, 255, 0.764);
-}
-
-.block-container .block > .content > .label {
+.block-container .block>.content>.label {
     display: inline-block;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -89,19 +63,17 @@ body {
     cursor: default;
 }
 
-.block-container .command.block > .content > .label:first-child {
-    margin-left: 4px;
-}
 
-.block-container .block > .content > .label:first-child {
+
+.block-container .block>.content>.label:first-child {
     margin-left: 10px;
 }
 
-.block-container .block > .content > .label:last-child {
+.block-container .block>.content>.label:last-child {
     margin-right: 10px;
 }
 
-.block-container .command.block > .content > .value-slot {
+.block-container .block>.content>.value-slot {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.929);
     border-radius: 100px;
@@ -113,15 +85,15 @@ body {
     text-align: center;
 }
 
-.block-container .command.block > .content > .value-slot:empty {
+.block-container .block>.content>.value-slot:empty {
     content: "\00a0\00a0";
 }
 
-.block-container .command.block > .content > :is(.value-slot, .choice):last-child {
+.block-container .block>.content> :is(.value-slot, .choice):last-child {
     margin-right: 0px;
 }
 
-.block-container .command.block > .content > .choice {
+.block-container .block>.content>.choice {
     background-color: rgba(255, 255, 255, 0.231);
     border-radius: 100px;
     display: inline-block;
@@ -148,28 +120,16 @@ body {
     translate: 0 2px;
 } */
 
-.block-container .command.block > .content > .choice::after {
+.block-container .block>.content>.choice::after {
     content: " ";
     display: inline-block;
     width: 10px;
     height: 10px;
-    margin-left: 5px;
+    margin-left: 4px;
     translate: 0 2px;
-    background: url("drop-down-arrow.svg");
+    background: url("../svg/drop-down-arrow.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     filter: invert();
-}
-
-.block-container .action.block > .content {
-    background-color: rgb(43, 130, 130);
-}
-
-.block-container .display.block > .content {
-    background-color: rgb(123, 86, 183);
-}
-
-.block-container .data.block > .content {
-    background-color: rgb(183, 115, 86);
 }

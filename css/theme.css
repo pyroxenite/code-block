@@ -1,0 +1,11 @@
+.block-container .action.block> :is(.content, .content::after, .content::before) {
+    background-color: rgb(43, 130, 130);
+}
+
+.block-container .display.block> :is(.content, .content::after, .content::before) {
+    background-color: rgb(123, 86, 183);
+}
+
+.block-container .data.block> :is(.content, .content::after, .content::before) {
+    background-color: rgb(183, 115, 86);
+}

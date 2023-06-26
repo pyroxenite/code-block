@@ -1,4 +1,8 @@
 document.querySelector(".block-container").addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("value-slot")) {
+        return;
+    }
+
     let block = getParentBlock(e.target);
 
     if (block == null) {
@@ -16,15 +20,17 @@ document.querySelector(".block-container").addEventListener("mousedown", (e) => 
         let y = (parseFloat(block.style.top) || 0) + e.movementY;
         block.style.left = `${x}px`;
         block.style.top = `${y}px`;
+        e.preventDefault();
+        return false;
     }
 
     const endDrag = (e) => {
-        document.querySelector(".block-container").removeEventListener("mousemove", handleDrag);
-        document.querySelector(".block-container").removeEventListener("mouseup", endDrag);
+        document.body.removeEventListener("mousemove", handleDrag);
+        document.body.removeEventListener("mouseup", endDrag);
     }
 
-    document.querySelector(".block-container").addEventListener("mousemove", handleDrag);
-    document.querySelector(".block-container").addEventListener("mouseup", endDrag);
+    document.body.addEventListener("mousemove", handleDrag);
+    document.body.addEventListener("mouseup", endDrag);
 });
 
 function getParentBlock(element) {
