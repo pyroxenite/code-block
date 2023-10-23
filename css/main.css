@@ -10,43 +10,59 @@ body {
     src: url("../fonts/Rubik.ttf");
 }
 
-.block-container {
-    background-color: rgb(64, 64, 64);
-    overflow: auto;
-    height: 500px;
-    font-family: Rubik;
-    position: relative;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+@font-face {
+    font-family: Fira;
+    src: url("../fonts/FiraCode.ttf");
 }
 
-.block-container>.block {
+block-container {
+    background-color: var(--container-background);
+    overflow: auto;
+    height: 100%;
+    font-family: Rubik;
+    position: relative;
+    /* border-radius: 10px;
+    margin: 10px; */
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+block-container > .block {
     /* border: 3px solid yellow;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 20px; */
     /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2)); */
     position: absolute;
+    /* left: var(--x-position, 0);
+    top: var(--y-position, 0); */
+    left: 0;
+    top: 0;
+    transform: translate(var(--x-position, 0), var(--y-position, 0));
 }
 
-.block-container .block {
+block-container .block {
     display: block;
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
+    z-index: 0;
 }
 
-.block-container .block>.content {
-    background-color: rgb(90, 90, 90);
-    color: white;
-    font-size: 14px;
+block-container .block > block-content {
+    background-color: var(--default-block-color);
+    color: var(--block-text-color);
     box-sizing: border-box;
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
+    font-size: 14px;
     font-family: Rubik;
     font-variation-settings: "wght" 380;
+
+    /* font-size: 13px;
+    font-family: Fira;
+    font-variation-settings: "wght" 450; */
     position: relative;
     white-space: nowrap;
 
@@ -54,10 +70,10 @@ body {
     align-items: center;
 }
 
-.block-container .block>.content>.label {
+block-container .block > block-content > block-label {
     display: inline-block;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     margin-left: 2px;
     margin-right: 2px;
     user-select: none;
@@ -65,55 +81,89 @@ body {
     cursor: default;
 }
 
-
-
-.block-container .block>.content>.label:first-child {
-    margin-left: 10px;
-}
-
-.block-container .block>.content>.label:last-child {
-    margin-right: 10px;
-}
-
-.block-container .block>.content>.value-slot {
-    background-color: rgba(255, 255, 255, 0.929);
+block-container .block > block-content > value-slot {
+    background-color: var(--value-slot-background-color);
+    color: var(--value-slot-text-color);
     border-radius: 100px;
-    margin-left: 2px;
-    margin-right: 2px;
-    color: black;
+    margin: 3px;
     padding: 5px 10px;
     min-width: 14px;
-    text-align: center;
+    min-height: 1em;
 
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    border: 1px solid var(--value-slot-border-color);
+    /* box-sizing: border-box; */
+
+    font-variant-numeric: tabular-nums;
+    position: relative;
 }
 
-.block-container .block>.content>.value-slot:empty {
-    content: "\00a0\00a0";
+block-container .block > block-content > value-slot:empty {
+
 }
 
-.block-container .block>.content> :is(.value-slot, .choice):last-child {
-    margin-right: 0px;
+block-container .block > block-content > value-slot:has(value-block) {
+    background-color: transparent;
+    border: none;
+    min-width: initial;
 }
 
-.block-container .block>.content>.choice {
-    background-color: rgba(255, 255, 255, 0.231);
+block-container .block > block-content > value-slot.snap {
+    border: 3px solid var(--value-slot-background-color);
+    background: rgba(0, 0, 0, 0.195);
+    padding: 3px 8px;
+    color: transparent;
+    animation: pulse-border 500ms infinite;
+}
+
+block-container .block > block-content > value-slot > input {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    text-align: center;
+    color: var(--block-text-color);
+    border-radius: 1000px;
+}
+
+block-container .block > block-content > value-slot > div.ghost-input {
+    opacity: 0;
+    font-size: 14px;
+    white-space: pre;
+}
+
+@keyframes pulse-border {
+    0%, 100% {
+        border-color: white;
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+block-container .block > block-content > choice-slot {
+    background-color: var(--value-slot-background-color);
+    color: var(--value-slot-text-color);
     border-radius: 100px;
     display: inline-block;
     margin-left: 2px;
     margin-right: 2px;
-    color: white;
     padding: 4px 10px;
     padding-right: 8px;
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--value-slot-border-color);
     box-sizing: border-box;
 }
 
-/* .block-container .command.block > .content > .choice::after {
+/* block-container action-block > block-content > choice-slot::after {
     content: " ";
     display: inline-block;
     width: 0;
@@ -124,7 +174,7 @@ body {
     translate: 0 2px;
 } */
 
-.block-container .block>.content>.choice::after {
+block-container .block > block-content > choice-slot::after {
     content: " ";
     display: inline-block;
     width: 10px;
@@ -136,4 +186,78 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     filter: invert();
+}
+
+block-container info-text {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    color: var(--bare-text-color);
+    font-variant-numeric: tabular-nums;
+}
+
+
+block-container .block > action-slot {
+    display: block;
+    /* height: 2px; */
+    width: 100%;
+    position: relative;
+    pointer-events: none;
+}
+
+block-container .block > action-slot.snap {
+    border-style: solid;
+    border-width: 3px 0 0 0;
+    padding-top: 2px;
+    animation: pulse-border 500ms infinite;
+}
+/* 
+block-container .block > action-slot:not(:has(.block))::after {
+    content: "+";
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: var(--.block-tab-color);
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+    opacity: 0;
+    transition: opacity 150ms 30ms;
+}
+
+block-container .block > action-slot:hover:not(:has(.block))::after {
+    opacity: 1;
+    transition: opacity 150ms 30ms;
+} */
+
+block-container .block > action-slot:has(.block) {
+    background-color: transparent;
+}
+
+block-container .local-variable:is(action-block, value-block) > block-content,
+block-container value-block.boolean.local-variable > block-content::before,
+block-container value-block.boolean.local-variable > block-content::after {
+    background-color: var(--local-variable-block-color);
+}
+
+block-container .user-interface:is(action-block, value-block) > block-content,
+block-container value-block.boolean.user-interface > block-content::before,
+block-container value-block.boolean.user-interface > block-content::after {
+    background-color: var(--user-interface-block-color);
+}
+
+block-container .global-variable:is(action-block, value-block) > block-content,
+block-container value-block.boolean.global-variable > block-content::before,
+block-container value-block.boolean.global-variable > block-content::after {
+    background-color: var(--global-variable-block-color);
+}
+
+block-container .operation:is(action-block, value-block) > block-content,
+block-container value-block.boolean.operation > block-content::before,
+block-container value-block.boolean.operation > block-content::after {
+    background-color: var(--operation-block-color);
+}
+
+.hidden {
+    display: none;
 }

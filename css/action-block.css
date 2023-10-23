@@ -1,0 +1,51 @@
+block-container action-block {
+    pointer-events: none;
+}
+
+block-container action-block.selected > block-content {
+    outline: 2px solid white;
+}
+
+block-container action-block > block-content {
+    border-radius: 0 100px 100px 0;
+    margin-bottom: 2px;
+    padding-left: 6px;
+    border-top: 1px solid var(--block-border-color);
+    border-bottom: 1px solid var(--block-border-color);
+    border-right: 1px solid var(--block-border-color);
+    transform: translateX(5px);
+    padding: 1px;
+    min-height: 34px;
+    pointer-events: initial;
+    box-sizing: border-box;
+}
+
+block-container action-block > block-content::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 5px;
+    left: -5px;
+    top: -1px;
+    bottom: -1px;
+    /* height: 20px; */
+    background-color: var(--block-tab-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+block-container action-block.selected > block-content::before {
+    outline: 2px solid white;
+}
+
+block-container action-block > block-content > block-label:first-child {
+    margin-left: 8px;
+}
+
+block-container action-block > block-content > block-label:last-child {
+    margin-right: 12px;
+}
+
+block-container action-block > block-content > :is(value-slot, choice-slot):last-child {
+    margin-right: 3px;
+}

@@ -1,81 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/command-block.css">
-    <link rel="stylesheet" href="css/value-block.css">
-    <link rel="stylesheet" href="css/header-block.css">
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/context-menu.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/action-block.css">
+  <link rel="stylesheet" href="css/value-block.css">
+  <link rel="stylesheet" href="css/header-block.css">
+  <link rel="stylesheet" href="css/indented-block.css">
 </head>
+
 <body>
 
-    <div class="block-container">
-    <div class="data command block" style="left: 40px; top: 50px;"> 
-        <div class="content">
-            <span class="label">Add</span>
-            <span class="value-slot" contenteditable="true">
-                5
-            </span>
-            <span class="label">to</span>
-            <span class="choice">count</span>
-        </div>
-        <div class="block-slot">
-            <div class="display command block">
-                <div class="content">
-                    <span class="label">Say</span>
-                    <span class="value-slot" contenteditable="true">Hello world</span>
-                </div>
-                <div class="block-slot">
-                    <div class="block-slot">
-                        <div class="action command block">
-                            <div class="content">
-                                <span class="label">Rotate</span>
-                                <span class="value-slot" contenteditable="true">
-                                    <div class="data value block" style="">
-                                        <div class="content">
-                                            <span class="label">count</span>
-                                        </div>
-                                    </div>
-                                </span>
-                                <span class="label">degrees</span>
-                            </div>
-                            <div class="block-slot">
-                    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="action command block" style="left: 100px; top: 200px;">
-        <div class="content">
-            <span class="label">Rotate</span>
-            <span class="value-slot" contenteditable="true">15</span>
-            <span class="label">degrees</span>
-        </div>
-        <div class="block-slot">
+  <block-container>
+    <info-text>
+      207, 497
+    </info-text>
 
-        </div>
-    </div>
+    <context-menu class="hidden"></context-menu>
 
-    <div class="data value block" style="left: 40px; top: 300px;">
-        <div class="content">
-            <span class="label">count</span>
-        </div>
-    </div>
+    <header-block class="global-variable block" position="52,100" style="--x-position: 52px; --y-position: 28px;">
+      <block-content>
+        <block-label>Lorsque la partie</block-label>
+        <choice-slot>commence</choice-slot>
+        <block-label>:</block-label>
+      </block-content>
+      <action-slot>
+        <action-block class="global-variable block">
+          <block-content>
+            <block-label>Add</block-label>
+            <value-slot>5</value-slot>
+            <block-label>to</block-label>
+            <choice-slot>count</choice-slot>
+          </block-content>
+          <action-slot><action-block class="block user-interface">
+              <block-content>
+                <block-label>Say</block-label>
+                <value-slot class=""><value-block class="global-variable block"
+                    position="124.125,153" style="--x-position: 124.125px; --y-position: 153px;">
+                    <block-content>
+                      <block-label>count</block-label>
+                    </block-content>
+                  </value-block></value-slot>
+              </block-content>
+              <action-slot><indented-block class="block" position="229,251"
+                  style="--x-position: 229px; --y-position: 251px;">
+                  <block-content>
+                    <header-block class="block non-displaceable">
+                      <block-content>
+                        <block-label>Si</block-label>
+                        <value-slot class=""><value-block class="global-variable block boolean"
+                            position="190.90625,252" style="--x-position: 190.90625px; --y-position: 252px;">
+                            <block-content style="--block-height: 27px;">
+                              <block-label>is visible</block-label>
+                            </block-content>
+                          </value-block></value-slot><block-label>:</block-label>
+                      </block-content>
+                      <action-slot><indented-block class="block" position="192,310"
+                          style="--x-position: 192px; --y-position: 310px;">
+                          <block-content>
+                            <header-block class="block non-displaceable">
+                              <block-content>
+                                <block-label>Si</block-label>
+                                <value-slot class=""><value-block class="boolean operation block" position="165,250"
+                                    style="--x-position: 165px; --y-position: 250px;">
+                                    <block-content style="--block-height: 45px;">
+                                      <value-slot class=""><value-block
+                                          class="global-variable block" position="186.875,269"
+                                          style="--x-position: 186.875px; --y-position: 269px;">
+                                          <block-content>
+                                            <block-label>count</block-label>
+                                          </block-content>
+                                        </value-block></value-slot>
+                                      <block-label>&nbsp;&gt;&nbsp;</block-label>
+                                      <value-slot class=""><value-block class="block operation"
+                                          position="259.546875,246"
+                                          style="--x-position: 259.546875px; --y-position: 246px;">
+                                          <block-content>
+                                            <value-slot class="">45</value-slot>
+                                            <block-label>+</block-label>
+                                            <value-slot class="">12</value-slot>
+                                          </block-content>
+                                        </value-block></value-slot>
+                                    </block-content>
+                                  </value-block></value-slot><block-label>:</block-label>
+                              </block-content>
+                              <action-slot><action-block class="global-variable block" position="163,368"
+                                  style="--x-position: 163px; --y-position: 368px;">
+                                  <block-content>
+                                    <block-label>Add</block-label>
+                                    <value-slot class="">5</value-slot>
+                                    <block-label>to</block-label>
+                                    <choice-slot>count</choice-slot>
+                                  </block-content>
+                                  <action-slot><action-block class="global-variable block" position="152,351"
+                                      style="--x-position: 152px; --y-position: 351px;">
+                                      <block-content>
+                                        <block-label>Add</block-label>
+                                        <value-slot class=""><value-block class="block operation"
+                                            position="176,340" style="--x-position: 176px; --y-position: 340px;">
+                                            <block-content>
+                                              <value-slot>
+                                                <value-block class="global-variable block">
+                                                  <block-content>
+                                                    <block-label>count</block-label>
+                                                  </block-content>
+                                                </value-block>
+                                              </value-slot>
+                                              <block-label>+</block-label>
+                                              <value-slot class=""><value-block
+                                                  class="block operation" position="293.515625,324"
+                                                  style="--x-position: 293.515625px; --y-position: 324px;">
+                                                  <block-content>
+                                                    <value-slot>
+                                                      <value-block class="global-variable block">
+                                                        <block-content>
+                                                          <block-label>count</block-label>
+                                                        </block-content>
+                                                      </value-block>
+                                                    </value-slot>
+                                                    <block-label>+</block-label>
+                                                    <value-slot class=""><value-block
+                                                        class="global-variable block">
+                                                        <block-content>
+                                                          <block-label>count</block-label>
+                                                        </block-content>
+                                                      </value-block></value-slot>
+                                                  </block-content>
+                                                </value-block></value-slot>
+                                            </block-content>
+                                          </value-block></value-slot>
+                                        <block-label>to</block-label>
+                                        <choice-slot>count</choice-slot>
+                                      </block-content>
+                                      <action-slot></action-slot>
+                                    </action-block></action-slot>
+                                </action-block></action-slot>
+                            </header-block>
+                            <header-block class="block non-displaceable">
+                              <block-content>
+                                <block-label>Sinon :</block-label>
+                              </block-content>
+                              <action-slot><action-block class="global-variable block" position="163,461"
+                                  style="--x-position: 163px; --y-position: 461px;">
+                                  <block-content>
+                                    <block-label>Add</block-label>
+                                    <value-slot>5</value-slot>
+                                    <block-label>to</block-label>
+                                    <choice-slot>count</choice-slot>
+                                  </block-content>
+                                  <action-slot></action-slot>
+                                </action-block></action-slot>
+                            </header-block>
+                          </block-content>
+                          <action-slot>
 
-    <div class="data boolean value block" style="left: 100px; top: 350px;">
-        <div class="content">
-            <span class="label">is visible</span>
-        </div>
-    </div>
+                          </action-slot>
+                        </indented-block></action-slot>
+                    </header-block>
+                    <header-block class="block non-displaceable">
+                      <block-content>
+                        <block-label>Sinon :</block-label>
+                      </block-content>
+                      <action-slot><action-block class="global-variable block" position="132,526"
+                          style="--x-position: 132px; --y-position: 526px;">
+                          <block-content>
+                            <block-label>Add</block-label>
+                            <value-slot>5</value-slot>
+                            <block-label>to</block-label>
+                            <choice-slot>count</choice-slot>
+                          </block-content>
+                          <action-slot></action-slot>
+                        </action-block></action-slot>
+                    </header-block>
+                  </block-content>
+                  <action-slot>
 
-    </div>
+                    <action-block class="block local-variable">
+                      <block-content>
+                        <block-label>Rotate</block-label>
+                      </block-content>
+                      <action-slot>
+                        <action-block class="block local-variable">
+                          <block-content>
+                            <block-label>Rotate</block-label>
+                            <value-slot>
+                              <value-block class="global-variable block">
+                                <block-content>
+                                  <block-label>count</block-label>
+                                </block-content>
+                              </value-block>
+                            </value-slot>
+                            <block-label>degrees</block-label>
+                          </block-content>
+                          <action-slot><action-block class="global-variable block" position="110,684"
+                              style="--x-position: 110px; --y-position: 684px;">
+                              <block-content>
+                                <block-label>Add</block-label>
+                                <value-slot>5</value-slot>
+                                <block-label>to</block-label>
+                                <choice-slot>count</choice-slot>
+                              </block-content>
+                              <action-slot></action-slot>
+                            </action-block></action-slot>
+                        </action-block></action-slot></action-block></action-slot>
+                </indented-block></action-slot>
+            </action-block></action-slot>
+        </action-block>
+      </action-slot>
+    </header-block>
 
-    <script src="js/code-blocks.js"></script>
+    <indented-block class="block" position="500,70">
+      <block-content>
+        <header-block>
+          <block-content>
+            <block-label>Avec les variables locales</block-label>
+            <value-slot></value-slot>
+            <value-slot></value-slot>
+            <value-slot></value-slot>
+            <block-label>:</block-label>
+          </block-content>
+          <action-slot>
+
+          </action-slot>
+      </block-content>
+      <action-slot>
+
+      </action-slot>
+    </indented-block>
+
+    <indented-block class="block" position="500,270">
+      <block-content>
+        <header-block>
+          <block-content>
+            <block-label>Si</block-label>
+            <value-slot></value-slot>
+            <block-label>:</block-label>
+          </block-content>
+          <action-slot>
+
+          </action-slot>
+        </header-block>
+        <header-block>
+          <block-content>
+            <block-label>Sinon :</block-label>
+          </block-content>
+          <action-slot>
+
+          </action-slot>
+        </header-block>
+      </block-content>
+      <action-slot>
+
+      </action-slot>
+    </indented-block>
+
+    <value-block class="boolean operation block" position="400,500">
+      <block-content>
+        <value-slot></value-slot>
+        <block-label>&nbsp;>&nbsp;</block-label>
+        <value-slot></value-slot>
+      </block-content>
+    </value-block>
+
+    <value-block class="local-variable" position="20,60">
+      <block-content>
+        <block-label>x</block-label>
+      </block-content>
+    </value-block>
+
+    <value-block class="local-variable" position="60,60">
+      <block-content>
+        <block-label>y</block-label>
+      </block-content>
+    </value-block>
+
+    <value-block class="local-variable" position="100,60">
+      <block-content>
+        <block-label>z</block-label>
+      </block-content>
+    </value-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+    <action-block class="global-variable block" position="10,10">
+      <block-content>
+        <block-label>Add</block-label>
+        <value-slot>5</value-slot>
+        <block-label>to</block-label>
+        <choice-slot>count</choice-slot>
+      </block-content>
+      <action-slot></action-slot>
+    </action-block>
+
+  </block-container>
+
+  <script src="js/utilities.js"></script>
+  <script src="js/custom-elements/ValueSlotElement.js"></script>
+  <!-- <script src="js/custom-elements/ActionSlotElement.js"></script> -->
+  <script src="js/custom-elements/BlockElement.js"></script>
+  <script src="js/custom-elements/ActionBlockElement.js"></script>
+  <script src="js/custom-elements/IndentedBlockElement.js"></script>
+  <script src="js/custom-elements/HeaderBlockElement.js"></script>
+  <script src="js/custom-elements/ValueBlockElement.js"></script>
+  <script src="js/custom-elements/BlockContainerElement.js"></script>
 </body>
+
 </html>

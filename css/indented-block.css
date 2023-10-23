@@ -1,0 +1,60 @@
+block-container indented-block {
+    pointer-events: none;
+}
+
+block-container indented-block.block > block-content {
+    border-radius: 0 100px 100px 0;
+    margin-bottom: 3px;
+    margin-top: 1px;
+    padding-left: 20px !important;
+    padding-bottom: 5px;
+    border: none;
+    transform: translateX(5px);
+    min-height: 34px;
+    pointer-events: none;
+    background-color: transparent !important;
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+}
+
+block-container indented-block > block-content::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 5px;
+    left: -5px;
+    top: -1px;
+    bottom: -1px;
+    pointer-events: initial;
+    /* height: 20px; */
+    /* background-color: var(--block-tab-color); */
+    /* box-shadow: inset 0 0 30px -30px var(--block-tab-color); */
+    background: linear-gradient(var(--block-tab-color), var(--block-tab-color-transparent), var(--block-tab-color-transparent), var(--block-tab-color));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+block-container indented-block > block-content > block-label:first-child {
+    margin-left: 8px;
+}
+
+block-container indented-block > block-content > block-label:last-child {
+    margin-right: 12px;
+}
+
+block-container indented-block > block-content > :is(value-slot, choice-slot):last-child {
+    margin-right: 3px;
+}
+
+block-container indented-block > block-content > header-block > action-slot > indented-block > block-content > header-block:first-child > block-content {
+    padding-top: 0;
+}
+
+block-container indented-block > block-content > header-block > action-slot > indented-block > block-content > header-block:first-child > block-content::before {
+    height: calc(50% + 5px);
+}
+
+block-container indented-block > block-content > header-block > action-slot > indented-block > block-content > header-block:first-child > block-content::after {
+    bottom: calc(50% - 7px + 5px);
+}
